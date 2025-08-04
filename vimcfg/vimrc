@@ -29,12 +29,11 @@ nnoremap <C-l> <C-w>l
 
 " LSP users are no welcome here ;)
 " just use 'tags' utility and grep, for completion, use built in completion
+" (Ctrl+N or Ctrl+Space Ctrl + O)
 "call plug#begin()
 "
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'mattn/vim-lsp-settings'
-""Plug 'prabirshrestha/asyncomplete.vim'
-""Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "
 "call plug#end()
 

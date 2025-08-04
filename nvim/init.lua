@@ -1,4 +1,4 @@
-require("config.lazy")
+--require("config.lazy")
 local vim = vim
 local cmd = vim.cmd             -- execute Vim commands
 local exec = vim.api.nvim_exec  -- execute Vimscript
@@ -32,12 +32,22 @@ vim.o.cursorlineopt = "number"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-cmd'colorscheme gruber-darker'
+vim.cmd("packadd mason.nvim")
+
+require "mason".setup()
+
+-- LSP's
+vim.lsp.enable({"clangd", "lua_ls", "c3_lsp"})
+
+require("gruber-darker").setup({})
+--require("gruber-darker").setup({})
+-- vim.cmd("colorscheme gruber-darker")
+
 --cmd'hi Cursor guifg=black guibg=yellow'
 --cmd('set n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor')
 
 -- autocomlepion
-cmd':inoremap <C-Space> <C-x><C-o>'
+vim.cmd(":inoremap <C-Space> <C-x><C-o>")
 
 cmd([[
 :tnoremap <Esc> <C-\><C-n>
