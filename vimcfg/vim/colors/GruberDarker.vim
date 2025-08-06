@@ -31,15 +31,18 @@
 " {{{ Colors
   let s:gruberFG=['#e4e4ef', '253']
   let s:gruberFG1=['#f4f4ff', '254']
-  let s:gruberFG2=['#f5f5ff', '240']
-  let s:gruberFG3=['#65737e', '243']
+  let s:gruberFG2=['#f5f5f5', '240']
+  "let s:gruberFG3=['#65737e', '243']
   let s:gruberWhite=['#ffffff', '15']
   let s:gruberBlack=['#000000', '0']
   let s:gruberBG=['#181818', '233']
   let s:gruberBG1=['#282828', '235']
   let s:gruberBG2=['#453d41', '238']
-  let s:gruberLightRed=['#c73c3f', '203']
+  let s:gruberBG3=['#484848', '255']
+  let s:gruberDarkerRed=['#c73c3f', '203']
   let s:gruberRed=['#f43841', '160']
+  let s:gruberLighterRed=['#ff4f58', '203']
+  let s:gruberNiagaraDarker=['#5f627f', '147']
   let s:gruberNiagara=['#96a6c8', '147']
   let s:gruberQuartz=['#95a99f', '108']
   let s:gruberGreen=['#73c936', '70']
@@ -49,6 +52,7 @@
   let s:gruberLightBlue=['#0087d7', '32']
   let s:gruberBlue=['#0000d7', '20']
   let s:gruberGold=['#d7af00', '178']
+  let s:gruberGrey=['#7a7a7a', '178']
   let s:none=['NONE', 'NONE']
 
 " {{{ Highlight function
@@ -71,7 +75,7 @@ function! <sid>hi(group, fg, bg, attr, attrsp)
   endif
 endfunction
 " }}}
-" {{{ call <sid>:hi(group, fg, bg, gui, guisp)
+" {{{ call <sid>:hi(group,      fg,               bg,         gui,       guisp)
 call <sid>hi('Bold',          '',                 '',           'bold',    '')
 call <sid>hi('Debug',         s:gruberFG2,        '',           '',        '')
 call <sid>hi('Directory',     s:gruberLightBlue,  '',           '',        '')
@@ -82,16 +86,16 @@ call <sid>hi('Folded',        s:gruberBrown,      s:gruberFG2,  s:italic,  '')
 call <sid>hi('IncSearch',     s:gruberBlack,      s:gruberFG2,  'NONE',    '')
 call <sid>hi('Italic',        '',                 '',           s:italic,  '')
 
-call <sid>hi('Macro',         s:gruberFG,         '',            '',        '')
+call <sid>hi('Macro',         s:gruberQuartz,         '',            '',        '')
 call <sid>hi('MatchParen',    s:gruberBG2,         s:gruberMain, '',        '')
 call <sid>hi('ModeMsg',       s:gruberFG2,        '',            '',        '')
 call <sid>hi('MoreMsg',       s:gruberFG2,        '',            '',        '')
 call <sid>hi('Question',      s:gruberNiagara,    '',            '',        '')
-call <sid>hi('Search',        s:gruberBlack,      s:gruberMain,  '',        '')
+call <sid>hi('Search',        s:gruberFG,      s:gruberNiagaraDarker,  '',        '')
 call <sid>hi('SpecialKey',    s:gruberFG2,        '',            '',        '')
 call <sid>hi('TooLong',       s:gruberFG2,        '',            '',        '')
 call <sid>hi('Underlined',    s:gruberPurple,     '',            '',        '')
-call <sid>hi('Visual',        '',                 s:gruberBG2,   '',        '')
+call <sid>hi('Visual',        '',                 s:gruberBG3,   '',        '')
 call <sid>hi('VisualNOS',     s:gruberRed,        '',            '',        '')
 call <sid>hi('WarningMsg',    s:gruberRed,        '',            '',        '')
 call <sid>hi('WildMenu',      s:gruberBlack,      s:gruberMain,  '',        '')
@@ -101,13 +105,13 @@ call <sid>hi('Cursor',        s:gruberBG,         s:gruberMain,    '',        ''
 call <sid>hi('NonText',       s:gruberFG2,        '',            '',        '')
 call <sid>hi('Normal',        s:gruberFG,         s:gruberBG,    '',        '')
 call <sid>hi('EndOfBuffer',   s:gruberFG,         s:gruberBG,    '',        '')
-call <sid>hi('LineNr',        s:gruberFG,         s:gruberBG,    '',        '')
+call <sid>hi('CursorLineNr',  s:gruberMain,       s:gruberBG,    'bold',        '')
+call <sid>hi('LineNr',        s:gruberGrey,         s:gruberBG,    '',        '')
 call <sid>hi('SignColumn',    s:none,             s:none,        '',        '')
 call <sid>hi('VertSplit',     s:gruberFG2,        s:gruberBG1,   '',        '')
 call <sid>hi('ColorColumn',   '',                 s:gruberBG2,   '',        '')
 call <sid>hi('CursorColumn',  '',                 s:gruberBG2,   '',        '')
-call <sid>hi('CursorLine',    '',                 s:gruberBG2,   'NONE',    '')
-call <sid>hi('CursorLineNr',  s:gruberMain,       s:gruberBG,    '',        '')
+call <sid>hi('CursorLine',    '',                 s:gruberBG,   'NONE',    '')
 call <sid>hi('PMenu',         s:gruberFG,         s:gruberBG1,   '',        '')
 call <sid>hi('PMenuSel',      s:gruberFG,         s:gruberBG2,   '',        '')
 call <sid>hi('PmenuSbar',     '',                 s:gruberBG,    '',        '')
@@ -119,20 +123,20 @@ call <sid>hi('helpCommand',   s:gruberMain,       '',            '',        '')
 call <sid>hi('Boolean',       s:gruberQuartz,     '',            '',          '')
 call <sid>hi('Character',     s:gruberGreen,      '',            '',          '')
 call <sid>hi('Comment',       s:gruberBrown,      '',            s:italic,    '')
-call <sid>hi('Conditional',   s:gruberMain,       '',            '',          '')
+call <sid>hi('Conditional',   s:gruberMain,       '',            'bold',          '')
 call <sid>hi('Constant',      s:gruberQuartz,     '',            '',          '')
-call <sid>hi('Define',        s:gruberMain,       '',            '',          '')
+call <sid>hi('Define',        s:gruberQuartz,       '',            '',          '')
 call <sid>hi('Delimiter',     s:gruberFG,         '',            '',          '')
-call <sid>hi('Float',         s:gruberQuartz,     '',            '',          '')
+call <sid>hi('Float',         s:gruberFG,     '',            '',          '')
 call <sid>hi('Function',      s:gruberNiagara,    '',            '',          '')
 call <sid>hi('Identifier',    s:gruberNiagara,    '',            '',          '')
-call <sid>hi('Include',       s:gruberMain,       '',            '',          '')
+call <sid>hi('Include',       s:gruberQuartz,       '',            '',          '')
 call <sid>hi('Keyword',       s:gruberMain,       '',            '',          '')
 call <sid>hi('Label',         s:gruberFG,         '',            '',          '')
-call <sid>hi('Number',        s:gruberQuartz,     '',            '',          '')
+call <sid>hi('Number',        s:gruberFG,     '',            '',          '')
 call <sid>hi('Operator',      s:gruberFG,         '',            '',          '')
-call <sid>hi('PreProc',       s:gruberFG1,        '',            '',          '')
-call <sid>hi('Repeat',        s:gruberMain,       '',            '',          '')
+call <sid>hi('PreProc',       s:gruberQuartz,        '',            '',          '')
+call <sid>hi('Repeat',        s:gruberMain,       '',            'bold',          '')
 call <sid>hi('Special',       s:gruberMain,       '',            '',          '')
 call <sid>hi('SpecialChar',   s:gruberMain,       '',            '',          '')
 call <sid>hi('Statement',     s:gruberMain,       '',            '',          '')
@@ -140,8 +144,8 @@ call <sid>hi('StorageClass',  s:gruberMain,       '',            '',          ''
 call <sid>hi('String',        s:gruberGreen,      '',            '',          '')
 call <sid>hi('Structure',     s:gruberMain,       '',            '',          '')
 call <sid>hi('Todo',          s:gruberBG,         s:gruberMain,  '',          '')
-call <sid>hi('Type',          s:gruberQuartz,     '',            '',          '')
-call <sid>hi('Typedef',       s:gruberQuartz,     '',            '',          '')
+call <sid>hi('Type',          s:gruberMain,     '',            '',          '')
+call <sid>hi('Typedef',       s:gruberMain,     '',            '',          '')
 
 call <sid>hi('SpellBad',      '',                 '',            'undercurl', '')
 call <sid>hi('SpellLocal',    '',                 '',            'undercurl', '')
@@ -202,8 +206,8 @@ call <sid>hi('vimfilerClosedFile',  s:gruberNiagara, '',          '',  '')
 let g:terminal_color_0=s:gruberBG1[0]
 let g:terminal_color_8=s:gruberBG1[0]
 
-let g:terminal_color_1=s:gruberLightRed[0]
-let g:terminal_color_9=s:gruberLightRed[0]
+let g:terminal_color_1=s:gruberLighterRed[0]
+let g:terminal_color_9=s:gruberLighterRed[0]
 
 let g:terminal_color_2=s:gruberGreen[0]
 let g:terminal_color_10=s:gruberGreen[0]
