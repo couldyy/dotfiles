@@ -119,6 +119,11 @@ call <sid>hi('PmenuThumb',    '',                 s:gruberBG,    '',        '')
 call <sid>hi('helpExample',   s:gruberMain,       '',            '',        '')
 call <sid>hi('helpCommand',   s:gruberMain,       '',            '',        '')
 
+call <sid>hi('TabLine',       s:gruberFG,         s:gruberBG,            '',        '')
+call <sid>hi('TabLineSel',    s:gruberFG,         s:gruberNiagaraDarker,            '',        '')
+call <sid>hi('TabLineFill',   s:gruberBG,       '',            '',        '')
+"call <sid>hi('Title',         '',                 s:gruberBG,            '',        '')
+
 " Standard syntax highlighting
 call <sid>hi('Boolean',       s:gruberQuartz,     '',            '',          '')
 call <sid>hi('Character',     s:gruberGreen,      '',            '',          '')
@@ -229,5 +234,4 @@ let g:terminal_color_15=s:gruberFG[0]
 
 let g:terminal_color_background=s:gruberBG1[0]
 let g:terminal_color_foreground=s:gruberWhite[0]
-
 
