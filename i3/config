@@ -208,7 +208,7 @@ bar {
 exec_always nitrogen --restore
 #exec_always "setxkbmap -layout us,ru,ua -variant ,, -option grp:win_space_toggle"
 
+exec_always "setxkbmap -option ctrl:nocaps"
 exec_always "setxkbmap -layout us,ru,ua"
-#bindsym Shift+space exec "xkb-switch -n; pkill -SIGUSR1 i3blocks"
 bindsym Shift+space exec "xkb-switch -n"
 
