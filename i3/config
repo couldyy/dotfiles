@@ -164,8 +164,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # taking scrennshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).png"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
@@ -205,10 +205,9 @@ bar {
     #status_command i3status --config ~/.i3status.conf
     status_command i3blocks -c ~/.i3blocks/i3blocks.conf
 }
-exec_always nitrogen --restore
+exec_always --no-startup-id nitrogen --restore
 #exec_always "setxkbmap -layout us,ru,ua -variant ,, -option grp:win_space_toggle"
 
-exec_always "setxkbmap -option ctrl:nocaps"
-exec_always "setxkbmap -layout us,ru,ua"
-bindsym Shift+space exec "xkb-switch -n"
-
+exec_always --no-startup-id "setxkbmap -option ctrl:nocaps \
+                -layout us,ru,ua \
+                -option grp:alt_shift_toggle"
