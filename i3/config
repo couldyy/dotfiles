@@ -210,4 +210,4 @@ exec_always --no-startup-id nitrogen --restore
 
 exec_always --no-startup-id "setxkbmap -option ctrl:nocaps \
                 -layout us,ru,ua \
-                -option grp:alt_shift_toggle"
+                -option grp:ctrl_space_toggle"
